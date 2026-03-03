@@ -9,7 +9,10 @@ export default function App() {
   return (
     <div className="bg-black text-white h-screen w-screen flex justify-center items-center">
       {joined ? (
-        <ChatArea roomId={roomId} name={name} />
+        <ChatArea roomId={roomId} name={name} onLeave={() => {
+    setJoined(false);
+    setRoomId("");
+  }}/>
       ) : (
         <HomePage
           onJoin={(id:string,name:string) => {
@@ -17,6 +20,7 @@ export default function App() {
             setRoomId(id);
             setName(name)
           }}
+          
         />
       )}
     </div>
