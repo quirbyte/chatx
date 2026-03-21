@@ -1,6 +1,11 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="flex flex-col">
       <h5 className="font-bold text-5xl tracking-tight text-center">Login</h5>
@@ -11,6 +16,8 @@ export default function login() {
         <div className="flex flex-col gap-1 mt-10">
           <label>Email:</label>
           <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="bg-background rounded-full focus:outline-none py-2 px-4"
             type="email"
           />
@@ -18,6 +25,8 @@ export default function login() {
         <div className="flex flex-col gap-1 mt-6">
           <label>Password:</label>
           <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="bg-background rounded-full focus:outline-none py-2 px-4"
             type="password"
           />
