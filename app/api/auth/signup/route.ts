@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import z from "zod";
 import { prisma } from "@/lib/prisma";
 
-const requiredBody = z.object({
+const signupBody = z.object({
   username: z.string().min(6),
   email: z.string().email().min(10),
   password: z.string().min(6),
@@ -11,7 +11,7 @@ const requiredBody = z.object({
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { success, error } = requiredBody.safeParse(body);
+  const { success, error } = signupBody.safeParse(body);
   if (!success) {
     return NextResponse.json(
       {
