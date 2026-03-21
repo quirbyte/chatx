@@ -4,7 +4,10 @@ export default function Home() {
   return (
     <main className="w-full h-full">
       <nav className="flex justify-between px-4 py-2 w-full h-full items-center">
-        <div className="font-extrabold tracking-tighter text-3xl">ChatX</div>
+        <div className="font-extrabold tracking-tighter text-3xl flex">
+          <div><img className="h-8 w-8 text-foreground" src="/logo.svg" alt="logo" /></div>
+          ChatX
+        </div>
         <div className="flex gap-5">
           <Link href="/signup">
             <button className="bg-zinc-300 py-1 px-3 font-bold text-background rounded-xl hover:bg-zinc-400">

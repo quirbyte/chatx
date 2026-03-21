@@ -10,6 +10,9 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "ChatX",
   description: "Real-time chat application",
+  icons: {
+    icon: "/logo.svg"
+  }
 };
 
 export default function RootLayout({
