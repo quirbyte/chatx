@@ -1,10 +1,30 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      alert("Logged in successfully!");
+      router.push("/home");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="flex flex-col">
@@ -12,7 +32,10 @@ export default function login() {
       <p className="text-[14px] text-foregrounddark text-center mt-1.5">
         Login to ChatX
       </p>
-      <form className="relative h-100 w-100 bg-backgroundlight rounded-xl mt-1 p-4">
+      <form
+        onSubmit={handleSubmit}
+        className="relative h-100 w-100 bg-backgroundlight rounded-xl mt-1 p-4"
+      >
         <div className="flex flex-col gap-1 mt-10">
           <label>Email:</label>
           <input
@@ -32,7 +55,10 @@ export default function login() {
           />
         </div>
         <div className="absolute bottom-2 flex flex-col items-center justify-center">
-          <button className="px-40 rounded-full text-center bg-zinc-300 text-black font-bold hover:bg-zinc-400 py-3">
+          <button
+            type="submit"
+            className="px-40 rounded-full text-center bg-zinc-300 text-black font-bold hover:bg-zinc-400 py-3"
+          >
             Submit
           </button>
           <Link className="text-sm hover:underline" href="/signup">
