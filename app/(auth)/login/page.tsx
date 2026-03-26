@@ -11,7 +11,7 @@ export default function login() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await fetch("/api/auth/login", {
+      const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -19,8 +19,13 @@ export default function login() {
           password,
         }),
       });
-      alert("Logged in successfully!");
-      router.push("/dashboard");
+      if (res.ok) {
+        alert("Logged in successfully!");
+        router.push("/dashboard");
+      }else{
+        const data = await res.json();
+        alert(data.msg);
+      }
     } catch (err) {
       console.log(err);
     }
