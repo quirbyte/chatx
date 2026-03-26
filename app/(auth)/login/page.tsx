@@ -20,7 +20,7 @@ export default function login() {
         }),
       });
       alert("Logged in successfully!");
-      router.push("/home");
+      router.push("/dashboard");
     } catch (err) {
       console.log(err);
     }
