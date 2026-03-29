@@ -9,9 +9,17 @@ import { useState } from "react";
 export default function Dashboard() {
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const handleCloseDialog = () =>{
+  const handleCloseDialog = () => {
     setDialogOpen(false);
-  }
+  };
+
+  const handleLogout = async () => {
+    await fetch("/api/auth/logout", {
+      method: "POST",
+    });
+    alert("You have been logged out succesfully");
+    window.location.href = "/login";
+  };
 
   return (
     <div className="absolute h-screen w-screen flex items-center justify-center">
@@ -29,7 +37,10 @@ export default function Dashboard() {
           <Groupbar title="HWFFWFFF" />
           <Groupbar title="HWFFWFFF" />
           <Groupbar title="HWFFWFFF" />
-          <div onClick={()=>setDialogOpen(true)}  className="sticky cursor-default bottom-2 bg-white text-black font-bold text-center py-2 px-7 rounded-full">
+          <div
+            onClick={() => setDialogOpen(true)}
+            className="sticky cursor-default bottom-2 bg-white text-black font-bold text-center py-2 px-7 rounded-full"
+          >
             Create / Join Room
           </div>
         </div>
@@ -72,11 +83,14 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-2 left-[6%] text-red-600 hover:text-red-300 cursor-default">
+      <div
+        onClick={handleLogout}
+        className="absolute bottom-2 left-[6%] text-red-600 hover:text-red-300 cursor-default"
+      >
         Log out
       </div>
       {dialogOpen && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+        <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
           <JoinDialog closeDialog={handleCloseDialog} />
         </div>
       )}
