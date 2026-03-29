@@ -13,7 +13,5 @@ export default function ChatBubble(props: bubbleProps){
                 {props.time}
             </div>
         </div>
-        
-        
     </div>
 }
