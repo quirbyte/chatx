@@ -8,6 +8,8 @@ import { useState } from "react";
 
 export default function Dashboard() {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [roomName, setRoomName] = useState("");
+  const [joinRoomCode, setJoinRoomCode] = useState("");
 
   const handleCloseDialog = () => {
     setDialogOpen(false);
@@ -19,6 +21,48 @@ export default function Dashboard() {
     });
     alert("You have been logged out succesfully");
     window.location.href = "/login";
+  };
+
+  const handleCreateRoom = async () => {
+    try {
+      const res = await fetch("/api/rooms/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: roomName,
+        }),
+      });
+      if (res.ok) {
+        alert("Created Room successfully!");
+        handleCloseDialog();
+      } else {
+        const data = await res.json();
+        alert(data.msg);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleJoinRoom = async () => {
+    try {
+      const res = await fetch("/api/rooms/join", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          roomCode: joinRoomCode,
+        }),
+      });
+      if (res.ok) {
+        alert("Joined Room successfully");
+        handleCloseDialog();
+      } else {
+        const data = await res.json();
+        alert(data.msg);
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -91,7 +135,13 @@ export default function Dashboard() {
       </div>
       {dialogOpen && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
-          <JoinDialog closeDialog={handleCloseDialog} />
+          <JoinDialog
+            closeDialog={handleCloseDialog}
+            createRoom={handleCreateRoom}
+            setRoomName={setRoomName}
+            joinRoom={handleJoinRoom}
+            setJoinRoomCode={setJoinRoomCode}
+          />
         </div>
       )}
     </div>
