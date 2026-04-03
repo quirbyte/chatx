@@ -16,28 +16,31 @@ export async function DELETE(req: NextRequest) {
       );
     }
     const userId = req.headers.get("x-user-id");
-    if(!userId){
-        return NextResponse.json({
-            msg : "User not Found"
-        },{
-            status : 404
-        })
-    }
-    const res= await prisma.room.update({
-        data: {
-            members: {
-                disconnect : {
-                    id: userId
-                }
-            }
+    if (!userId) {
+      return NextResponse.json(
+        {
+          msg: "User not Found",
         },
-        where : {
-            id: roomCode
-        }
-    })
+        {
+          status: 404,
+        },
+      );
+    }
+    const res = await prisma.room.update({
+      data: {
+        members: {
+          disconnect: {
+            id: userId,
+          },
+        },
+      },
+      where: {
+        id: roomCode,
+      },
+    });
     return NextResponse.json({
-        msg : "Left Room successfully!"
-    })
+      msg: "Left Room successfully!",
+    });
   } catch (e) {
     return NextResponse.json(
       {
