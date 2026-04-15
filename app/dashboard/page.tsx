@@ -1,5 +1,6 @@
 "use client";
 import ChatBubble from "@/components/chatbubble";
+import { MyChatBubble } from "@/components/chatbubble";
 import Groupbar from "@/components/groupbar";
 import JoinDialog from "@/components/joinDialog";
 import { CopyIcon } from "lucide-react";
@@ -120,6 +121,7 @@ export default function Dashboard() {
             <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
             <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
             <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
+            <MyChatBubble msg="Hello everyone" time="9:32 PM" />
           </div>
           <textarea className="absolute bottom-0 resize-none rounded-br-2xl bg-white h-12 w-full focus:outline-0 p-2 text-md"></textarea>
           <div className="absolute right-4 bottom-3">
