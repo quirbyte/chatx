@@ -104,26 +104,31 @@ export default function Dashboard() {
               Leave Room
             </div>
           </div>
-          <div className="p-4 flex flex-col gap-2.5 h-[calc(100%-48px-52px)] overflow-y-auto no-scrollbar">
+          <div className="p-4 flex flex-col gap-2.5 h-[calc(100%-48px-52px)] w-full overflow-y-auto no-scrollbar">
             <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
             <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
             <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
-            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
-            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
-            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
-            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
-            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
-            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
-            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
-            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
-            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
-            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
+            <MyChatBubble msg="Hello everyone" time="9:32 PM" />
             <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
             <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
             <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
             <MyChatBubble msg="Hello everyone" time="9:32 PM" />
+            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
+            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
+            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
+            <MyChatBubble msg="Hello everyone" time="9:32 PM" />
+            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
+            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
+            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
+            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
+            <MyChatBubble msg="Hello everyone" time="9:32 PM" />
+            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
+            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="9:05 PM" />
+            <ChatBubble sender="Ranjan" msg="Hi everyone!" time="10:05 PM" />
+            <MyChatBubble msg="Hello everyone" time="9:32 PM" />
+            <MyChatBubble msg="Hello everyone" time="9:32 PM" />
           </div>
-          <textarea className="absolute bottom-0 resize-none rounded-br-2xl bg-white h-12 w-full focus:outline-0 p-2 text-md"></textarea>
+          <textarea placeholder="Send a message..." className="absolute bottom-0 resize-none rounded-br-2xl bg-white h-12 w-full focus:outline-0 p-2 text-md"></textarea>
           <div className="absolute right-4 bottom-3">
             <SendIcon size={20} />
           </div>
