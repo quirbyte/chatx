@@ -70,18 +70,20 @@ export default function Dashboard() {
     <div className="absolute h-screen w-screen flex items-center justify-center">
       <div className="bg-blue-200 h-[90%] w-[90%] rounded-2xl flex">
         <div className="relative bg-blue-400 w-[30%] overflow-y-auto no-scrollbar  h-full rounded-l-2xl pt-5 flex flex-col gap-4 items-center">
-          <Groupbar title="Group 1" />
-          <Groupbar title="BEFGERF" />
-          <Groupbar title="HJ5YGERFWEF" />
-          <Groupbar title="TH4EGWFWEF" />
-          <Groupbar title="HWFFWFFF" />
-          <Groupbar title="HWFFWFFF" />
-          <Groupbar title="HWFFWFFF" />
-          <Groupbar title="HWFFWFFF" />
-          <Groupbar title="HWFFWFFF" />
-          <Groupbar title="HWFFWFFF" />
-          <Groupbar title="HWFFWFFF" />
-          <Groupbar title="HWFFWFFF" />
+          <div className="relative bg-blue-400 w-full overflow-y-auto no-scrollbar  h-full rounded-l-2xl pt-5 flex flex-col gap-4 items-center">
+            <Groupbar title="Group 1" />
+            <Groupbar title="BEFGERF" />
+            <Groupbar title="HJ5YGERFWEF" />
+            <Groupbar title="TH4EGWFWEF" />
+            <Groupbar title="HWFFWFFF" />
+            <Groupbar title="HWFFWFFF" />
+            <Groupbar title="HWFFWFFF" />
+            <Groupbar title="HWFFWFFF" />
+            <Groupbar title="HWFFWFFF" />
+            <Groupbar title="HWFFWFFF" />
+            <Groupbar title="HWFFWFFF" />
+            <Groupbar title="HWFFWFFF" />
+          </div>
           <div
             onClick={() => setDialogOpen(true)}
             className="sticky cursor-default bottom-2 bg-white text-black font-bold text-center py-2 px-7 rounded-full"
@@ -128,7 +130,10 @@ export default function Dashboard() {
             <MyChatBubble msg="Hello everyone" time="9:32 PM" />
             <MyChatBubble msg="Hello everyone" time="9:32 PM" />
           </div>
-          <textarea placeholder="Send a message..." className="absolute bottom-0 resize-none rounded-br-2xl bg-white h-12 w-full focus:outline-0 p-2 text-md"></textarea>
+          <textarea
+            placeholder="Send a message..."
+            className="absolute bottom-0 resize-none rounded-br-2xl bg-white h-12 w-full focus:outline-0 p-2 text-md"
+          ></textarea>
           <div className="absolute right-4 bottom-3">
             <SendIcon size={20} />
           </div>
